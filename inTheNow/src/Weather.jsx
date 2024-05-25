@@ -14,7 +14,8 @@ function Weather() {
         const fetchWeather = async () => {
             try {
                 if (!city) {
-                    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=${import.meta.env.VITE_WEATHER_API_KEY}`);
+                    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=${import.meta.env.VITE_WEATHER_API_KEY}`);
+                    console.log(response.data);
                     setWeather(response.data);
                     setLoading(false);
                 }
@@ -44,7 +45,7 @@ function Weather() {
 
     return (
         <div style={{backgroundImage: `url(${weather_bg})`, backgroundSize: 'cover', minHeight: '100vh'}}>
-            <DisplayWeather weather={weather} setCity={setCity}/>
+            <DisplayWeather weather={weather} setCity={setCity} />
         </div>
     );
 }

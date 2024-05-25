@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 
-function DisplayWeather({ weather, setCity }) {
+function DisplayWeather({ weather, setCity}) {
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearch = (e) => {
@@ -12,7 +12,7 @@ function DisplayWeather({ weather, setCity }) {
 
     return (
     <>
-        <Container className="bg-link py-5">
+        <Container className="py-5">
             <Row className="justify-content-center">
                 <Col md={6}>
                     <Card className="text-center shadow-lg">
@@ -27,7 +27,7 @@ function DisplayWeather({ weather, setCity }) {
                                 />
                                 <button
                                     type="submit"
-                                    className="btn btn-info"
+                                    className="btn btn-success"
                                     style={{padding: "5px 10px", marginLeft: "10px"}}
                                 >
                                     Search
@@ -35,18 +35,21 @@ function DisplayWeather({ weather, setCity }) {
                             </form>
                         </Card.Header>
                         <Card.Body>
-                            <Card.Title className="display-4">{weather.name}</Card.Title>
+                            <Card.Title className="display-4">{weather.name}
+                            <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                            />
+                            </Card.Title>
                             <Card.Text className="fs-5">
-                                <strong>Temperature: </strong>{weather.main.temp}
+                                <strong>Temperature: </strong>{weather.main.temp}°
                             </Card.Text>
                             <Card.Text className="fs-5">
-                                <strong>Pressure: </strong>{weather.main.pressure}
+                                <strong>Humidity: </strong>{weather.main.humidity}%
                             </Card.Text>
                             <Card.Text className="fs-5">
-                                <strong>Humidity: </strong>{weather.main.humidity}
+                                <strong>Wind Speed: </strong>{Math.floor(weather.wind.speed * 3.6)} KM/H
                             </Card.Text>
                             <Card.Text className="fs-5">
-                                <strong>Wind: </strong>{weather.wind.speed} MPH
+                                <strong>Description: </strong>{weather.weather[0].description}
                             </Card.Text>
                         </Card.Body>
                     </Card>
