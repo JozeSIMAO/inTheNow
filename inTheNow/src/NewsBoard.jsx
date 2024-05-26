@@ -11,7 +11,7 @@ const NewsBoard = ({ category, query, url }) => {
             setLoading(true);
             setError(null);
             try {
-                let newsUrl = url || `https://newsapi.org/v2/top-headlines?q=${query}&sortBy=relevency&language=en&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}` ;
+                let newsUrl = url;
                 let response = await fetch(newsUrl);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -26,7 +26,7 @@ const NewsBoard = ({ category, query, url }) => {
         };
 
         fetchNews();
-    }, [category, query, url]);
+    }, [url]);
 
     if (loading) {
         return (

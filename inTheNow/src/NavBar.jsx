@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-export default function NavBar({ setCategory, setQuery, setUrl, category, query }) {
+export default function NavBar({ setUrl }) {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -11,8 +11,7 @@ export default function NavBar({ setCategory, setQuery, setUrl, category, query 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         const searchQuery = e.target.search.value;
-        const queryString = `${encodeURIComponent(searchQuery)}`;
-        setQuery(queryString);
+        setUrl(`https://newsapi.org/v2/everything?q=${searchQuery}&sortBy=relevency&language=en&apiKey=${import.meta.env.VITE_API_KEY}`)
     };
     const handleWeather= (e) => {
         e.preventDefault();
@@ -56,19 +55,19 @@ export default function NavBar({ setCategory, setQuery, setUrl, category, query 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Technology"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Technology&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Technology</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Technology&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Technology</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Business"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Business&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Business</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Business&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Business</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Health"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Health&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Health</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Health&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Health</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Sport"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=sports&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Sport</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=sports&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Sport</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Entertainment"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Entertainment&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Entertainment</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Entertainment&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Entertainment</button>
                             </li>
                             <li className="nav-item">
                                 <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={handleWeather}>Weather</button>
@@ -76,7 +75,7 @@ export default function NavBar({ setCategory, setQuery, setUrl, category, query 
                         </ul>
                         <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" />
-                            <button className="bg-dark fw-bold btn btn-outline-light" type="submit">Search</button>
+                            <button className="bg-dark fw-bold btn btn-outline-light" type="submit" >Search</button>
                         </form>
                     </div>
                 </div>
