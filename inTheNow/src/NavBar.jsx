@@ -55,22 +55,46 @@ export default function NavBar({ setUrl }) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Technology&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Technology</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light"
+                                style={{ cursor: "pointer" }} 
+                                onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Technology&apiKey=${import.meta.env.VITE_API_KEY}`)}}>
+                                    Technology
+                                </button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Business&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Business</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Business&apiKey=${import.meta.env.VITE_API_KEY}`)}}>
+                                    Business
+                                </button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Health&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Health</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Health&apiKey=${import.meta.env.VITE_API_KEY}`)}}>
+                                    Health
+                                </button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=sports&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Sport</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=sports&apiKey=${import.meta.env.VITE_API_KEY}`)}}>
+                                    Sport
+                                </button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Entertainment&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Entertainment</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => {setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Entertainment&apiKey=${import.meta.env.VITE_API_KEY}`)}}>
+                                    Entertainment
+                                </button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={handleWeather}>Weather</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light"
+                                style={{ cursor: "pointer" }}
+                                onClick={handleWeather}>
+                                    Weather
+                                </button>
                             </li>
                         </ul>
                         <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
