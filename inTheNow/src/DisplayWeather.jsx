@@ -27,7 +27,7 @@ function DisplayWeather({ weather, setCity}) {
                                 />
                                 <button
                                     type="submit"
-                                    className="btn btn-success"
+                                    className="btn btn-success bg-dark text-white border-primary"
                                     style={{padding: "5px 10px", marginLeft: "10px"}}
                                 >
                                     Search

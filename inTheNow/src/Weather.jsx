@@ -20,7 +20,7 @@ function Weather() {
                     setLoading(false);
                 }
                 else {
-                    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`);
+                    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_WEATHER_API_KEY}`);
                     setWeather(response.data);
                     setLoading(false);
                 }
@@ -36,7 +36,13 @@ function Weather() {
     
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="d-flex justify-content-center align-items-center" style={{height:"100vh"}}>
+                <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        );
     }
 
     if (error || !weather) {
