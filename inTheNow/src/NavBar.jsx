@@ -7,7 +7,6 @@ export default function NavBar({ setUrl }) {
     const navigate = useNavigate();
     const location = useLocation();
 
-    console.log(location);
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         const searchQuery = e.target.search.value;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
 
-const NewsBoard = ({ category, query, url }) => {
+const NewsBoard = ({ url }) => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
