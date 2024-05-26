@@ -24,6 +24,3 @@ inTheNow is a news app that utilizes React and Bootstrap to provide users with t
 ## Contributing
 Contributions are welcome! If you have any suggestions or improvements, please create a pull request.
 
-## License
-This project is licensed under the [MIT License](LICENSE).
-
