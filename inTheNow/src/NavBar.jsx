@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-export default function NavBar({ setCategory, setQuery }) {
+export default function NavBar({ setCategory, setQuery, setUrl, category, query }) {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -56,19 +56,19 @@ export default function NavBar({ setCategory, setQuery }) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => setCategory("Technology")}>Technology</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Technology"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Technology&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Technology</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => setCategory("Business")}>Business</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Business"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Business&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Business</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => setCategory("Health")}>Health</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Health"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Health&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Health</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => setCategory("Sport")}>Sport</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Sport"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=sports&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Sport</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => setCategory("Entertainment")}>Entertainment</button>
+                                <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={() => {setCategory("Entertainment"); setUrl(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&category=Entertainment&apiKey=${import.meta.env.VITE_API_KEY}`)}}>Entertainment</button>
                             </li>
                             <li className="nav-item">
                                 <button className="nav-link btn btn-link text-dark fw-bold btn-outline-light" style={{ cursor: "pointer" }} onClick={handleWeather}>Weather</button>
