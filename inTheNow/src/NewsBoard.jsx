@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
+import Comments from "./Comments";
 
 const NewsBoard = ({ url }) => {
     const [articles, setArticles] = useState([]);
@@ -47,6 +48,7 @@ const NewsBoard = ({ url }) => {
             {articles.map((news, index) => (
                 <NewsItem key={index} title={news.title} description={news.description} src={news.urlToImage} url={news.url} />
             ))}
+            <Comments />
         </>
     );
 };
