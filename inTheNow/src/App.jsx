@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap';
 
 function App() {
-  const [url, setUrl] = useState(`https://newsapi.org/v2/top-headlines?sortBy=relevency&language=en&apiKey=${import.meta.env.VITE_API_KEY}`);
+  const [url, setUrl] = useState(`https://newsapi.org/v2/top-headlines?sortBy=relevency&pageSize=8&language=en&apiKey=${import.meta.env.VITE_API_KEY}`);
 
   return (
     <>
@@ -20,7 +20,7 @@ function App() {
         </Routes>
       </Router>
     </>
-  )
+  );
 }
 
 export default App
