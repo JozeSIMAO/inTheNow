@@ -1,7 +1,7 @@
 # inTheNow
 
 ## Description
-inTheNow is a news app that utilizes React and Bootstrap to provide users with the latest headlines. It also integrates with a news API to fetch the news articles and another API to display the weather information of major cities.
+inTheNow is a news app that utilizes React and Bootstrap to provide users with the latest headlines from multiple news sources. It also integrates with a news API to fetch the news articles and another API to display the weather information of major cities.
 
 ## Features
 - Displaying headlining news articles
@@ -23,7 +23,4 @@ inTheNow is a news app that utilizes React and Bootstrap to provide users with t
 
 ## Contributing
 Contributions are welcome! If you have any suggestions or improvements, please create a pull request.
-
-## License
-This project is licensed under the [MIT License](LICENSE).
 
