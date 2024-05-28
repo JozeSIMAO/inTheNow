@@ -6,12 +6,13 @@ import Weather from './Weather';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap';
+import './App.css';
 
 function App() {
   const [url, setUrl] = useState(`https://newsapi.org/v2/top-headlines?sortBy=relevency&pageSize=8&language=en&apiKey=${import.meta.env.VITE_API_KEY}`);
 
   return (
-    <>
+    <div className='App'>
       <Router>
         <NavBar setUrl={setUrl}/>
         <Routes>
@@ -19,7 +20,7 @@ function App() {
           <Route path='/DisplayWeather' element={<Weather />} />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

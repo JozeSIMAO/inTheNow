@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 
 function DisplayWeather({ weather, setCity}) {
+
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearch = (e) => {
@@ -10,14 +11,22 @@ function DisplayWeather({ weather, setCity}) {
         console.log('Search Query:', searchQuery);
     };
 
+    const containerStyle = {
+        backgroundColor: "rgba(255, 255, 255, 0)",
+        opacity: "1",
+        border: "2px solid white",
+        color: "white",
+        fontWeight: "bold",
+    }
+
     return (
     <>
         <Container className="py-5">
             <Row className="justify-content-center">
                 <Col md={6}>
-                    <Card className="text-center shadow-lg">
-                        <Card.Header className="bg-secondary text-white">
-                            <form className="search-form" onSubmit={handleSearch}>
+                    <Card className="text-center shadow-lg" style={containerStyle}>
+                        <Card.Header className="text-white" style={{borderBottomColor:"white"}}>
+                            <form className="search-form" onSubmit={handleSearch} >
                                 <input
                                     type="text"
                                     placeholder="Enter city name"
@@ -40,7 +49,7 @@ function DisplayWeather({ weather, setCity}) {
                             />
                             </Card.Title>
                             <Card.Text className="fs-5">
-                                <strong>Temperature: </strong>{weather.main.temp}°
+                                <strong>Temperature: </strong>{weather.main.temp}°C
                             </Card.Text>
                             <Card.Text className="fs-5">
                                 <strong>Humidity: </strong>{weather.main.humidity}%
