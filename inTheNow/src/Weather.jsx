@@ -50,7 +50,7 @@ function Weather() {
     }
 
     return (
-        <div style={{backgroundImage: `url(${weather_bg})`, backgroundSize: 'cover', minHeight: '100vh'}}>
+        <div style={{backgroundImage: `url(${weather_bg})` , backgroundSize: 'cover', minHeight: '100vh'}} loading="slow">
             <DisplayWeather weather={weather} setCity={setCity} />
         </div>
     );

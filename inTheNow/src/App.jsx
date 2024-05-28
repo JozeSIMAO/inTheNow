@@ -8,20 +8,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap';
 
 function App() {
-  const [category, setCategory] = useState('general');
-  const [query, setQuery] = useState('');
+  const [url, setUrl] = useState(`https://newsapi.org/v2/top-headlines?sortBy=relevency&pageSize=8&language=en&apiKey=${import.meta.env.VITE_API_KEY}`);
 
   return (
     <>
       <Router>
-        <NavBar setCategory={setCategory} setQuery={setQuery}/>
+        <NavBar setUrl={setUrl}/>
         <Routes>
-          <Route exact path='/' element={<NewsBoard category={category} query={query} />} />
+          <Route exact path='/' element={<NewsBoard url={url}/>} />
           <Route path='/DisplayWeather' element={<Weather />} />
         </Routes>
       </Router>
     </>
-  )
+  );
 }
 
 export default App

@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
+    "firebase": "^10.12.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

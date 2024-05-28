@@ -15,7 +15,7 @@ export default function NewsItem({ title, description, src, url }) {
             />
             <div className="card-body">
                 <h5 className="card-title">{title ? title.slice(0, 100) : "No Title Available"}</h5>
-                <p className="card-text">{description ? description.slice(0, 90) : "No description available"}</p>
+                <p className="card-text">{description ? description.slice(0, 100) : "No description available"}...</p>
                 <a href={url} target="_blank" className="btn btn-primary">Read More</a>
             </div>
         </div>
