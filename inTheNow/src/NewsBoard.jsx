@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
 import Comments from "./Comments";
+import FloatingButton from "./FloatingButton";
 
 const NewsBoard = ({ url }) => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isButtonVisible, setIsButtonVisible] = useState(true);
+
+    const handleDownClick = (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
 
     useEffect(() => {
         const fetchNews = async () => {
@@ -29,6 +36,16 @@ const NewsBoard = ({ url }) => {
         fetchNews();
     }, [url]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const isAtBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight;
+            setIsButtonVisible(!isAtBottom);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     if (loading) {
         return (
             <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
@@ -48,6 +65,7 @@ const NewsBoard = ({ url }) => {
             {articles.map((news, index) => (
                 <NewsItem key={index} title={news.title} description={news.description} src={news.urlToImage} url={news.url} />
             ))}
+            {isButtonVisible && <FloatingButton onClick={handleDownClick} />}
             <Comments />
         </>
     );
