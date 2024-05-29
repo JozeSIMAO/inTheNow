@@ -56,11 +56,11 @@ export default function SignIn() {
   }
 
   return (
-    <div style={{ 
-      maxHeight: "100vh", 
-      backgroundImage: `url(${image})`, 
-      backgroundSize: 'cover', 
-      backgroundPosition: 'center', 
+    <div style={{
+      backgroundImage: `url(${image})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: "no-repeat",
       minHeight: '100vh', 
       display: 'flex', 
       justifyContent: 'center', 
@@ -75,7 +75,6 @@ export default function SignIn() {
           </div>
         </div>
         <form className="login-page">
-          {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
           <div className="section my-4">
             <h3 className="text-center text-danger mb-4">Sign Up</h3>
             <div className="form-group">
@@ -112,7 +111,8 @@ export default function SignIn() {
           </div>
 
           <div className="text-center text-light fw-bold fs-5 mb-4">OR</div>
-
+          
+          {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
           <div className="section my-4">
             <h3 className="text-center text-danger mb-4">Login</h3>
             <div className="form-group">
