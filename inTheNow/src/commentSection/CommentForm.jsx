@@ -3,18 +3,26 @@ import { auth } from '../authentication/FirebaseConfig';
 
 function CommentForm({ addComment }) {
   const [text, setText] = useState('');
-  const name = auth.currentUser.email.replace(new RegExp("\\b" + "@gmail.com" + "\\b", "gi"), "");
+  const name = auth.currentUser ? auth.currentUser.email.replace(new RegExp("\\b" + "@gmail.com" + "\\b", "gi"), "") : '';
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (auth.currentUser && text) {
-      addComment({
+      const newComment = {
         author: auth.currentUser.email,
         text,
         date: new Date().toISOString()
-      });
+      };
+      addComment(newComment);
+      saveCommentsToLocal(newComment);
       setText('');
     }
+  };
+
+  const saveCommentsToLocal = (comment) => {
+    const existingComments = JSON.parse(localStorage.getItem('comments')) || [];
+    const updatedComments = [...existingComments, comment];
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
   };
 
   return (
