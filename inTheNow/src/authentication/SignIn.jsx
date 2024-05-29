@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import image from '../assets/signin_bg.jpg';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './FirebaseConfig';
 
@@ -47,10 +48,11 @@ export default function SignIn() {
   }
 
   return (
-    <div className="container my-4" style={{ width: "500px" }}>
+    <div className="container my-4" style={{ width: "500px",}}>
+        <div className="text-dark" style={{marginLeft:"37%", width:"150px", fontSize:"30px", border:"3px solid red"}}>InThe<span className='text-danger fw-bold'>Now</span></div>
       <form className="login-page">
         <div className="section my-5">
-          <h3 className="text-center text-danger mb-4">Register User</h3>
+          <h3 className="text-center text-danger mb-4">Sign User</h3>
           <div className="form-group">
             <input
               className="form-control mb-3"
@@ -71,6 +73,8 @@ export default function SignIn() {
             <button onClick={register} className="btn btn-primary w-100" type="submit">Sign Up</button>
           </div>
         </div>
+
+        <div className="text-dark fw-bold fs-5" style={{marginLeft:"50%"}}>OR</div>
 
         <div className="section my-5">
           <h3 className="text-center text-danger mb-4">Login</h3>
