@@ -30,7 +30,11 @@ export default function SignIn() {
       console.log(userCredential);
       setErrorMessage("");
     } catch (error) {
-      setErrorMessage(error.message);
+      if (error.code === "auth/weak-password") {
+        setErrorMessage('Password should be at least 6 characters');
+      } else {
+        setErrorMessage(error.message)
+      }
     }
   }
 
