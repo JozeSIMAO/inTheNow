@@ -44,7 +44,7 @@ export default function NavBar({ setUrl, auth }) {
     return (
         <nav className={`navbar navbar-expand-lg ${location.pathname === '/DisplayWeather' ? 'bg-body-tertiary' : 'bg-success'}`} data-bs-theme="dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/"><span className="badge bg-light text-dark fs-4">InTheNow</span></a>
+                <a className="navbar-brand" href="/" onClick={renderAuthButton}><span className="badge bg-light text-dark fs-4">InTheNow</span></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
