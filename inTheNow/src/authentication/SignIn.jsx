@@ -7,12 +7,10 @@ import { useNavigate } from 'react-router-dom';
 export default function SignIn() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser] = useState(null);
   const [showRegisterPassword, setShowRegisterPassword] = useState(false);
-  const [showLoginPassword, setShowLoginPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [VerifyPassword, setVerifyPassword] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,27 +24,19 @@ export default function SignIn() {
   const register = async (e) => {
     e.preventDefault();
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
-      console.log(userCredential);
-      setErrorMessage("");
-    } catch (error) {
-      if (error.code === "auth/weak-password") {
-        setErrorMessage('Password should be at least 6 characters');
-      } else {
-        setErrorMessage(error.message)
+      if (registerPassword !== VerifyPassword) {
+        setErrorMessage("Passwords do not match!");
+        return;
       }
-    }
-  }
-
-  const login = async (e) => {
-    e.preventDefault();
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-      console.log(userCredential);
+      const userCredential = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
       setErrorMessage("");
       navigate('/');
     } catch (error) {
-      setErrorMessage('Wrong credentials or user not found');
+      if (error.code === "auth/weak-password") {
+        setErrorMessage('Password should be at least 6 characters!');
+      } else {
+        setErrorMessage(error.message)
+      }
     }
   }
 
@@ -57,6 +47,11 @@ export default function SignIn() {
     } catch (error) {
       console.log(error.message);
     }
+  }
+
+  const handleLoginPage = (e) => {
+    e.preventDefault();
+    navigate('/login');
   }
 
   return (
@@ -100,6 +95,15 @@ export default function SignIn() {
                 onChange={(e) => setRegisterPassword(e.target.value)}
                 required
               />
+              <input
+                className="form-control mb-3"
+                type={showRegisterPassword ? "text" : "password"}
+                name="VerifyPassword"
+                placeholder="Verify Password"
+                value={VerifyPassword}
+                onChange={(e) => setVerifyPassword(e.target.value)}
+                required
+              />
               <div className="form-check mb-3">
                 <input 
                   type="checkbox"
@@ -110,47 +114,14 @@ export default function SignIn() {
                 />
                 <label className="form-check-label" htmlFor="showRegisterPassword">Show Password</label>
               </div>
+              {errorMessage && <p className="text-danger px-2 fw-bold bg-light rounded">{errorMessage}</p>}
               <button onClick={register} className="btn btn-primary w-100" type="submit">Sign Up</button>
             </div>
-          </div>
-
-          <div className="text-center text-light fw-bold fs-5 mb-4">OR</div>
-          
-          {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-          <div className="section my-4">
-            <h3 className="text-center text-danger mb-4">Login</h3>
-            <div className="form-group">
-              <input
-                className="form-control mb-3"
-                type="email"
-                name="loginEmail"
-                placeholder="Email"
-                value={loginEmail}
-                onChange={(e) => setLoginEmail(e.target.value)}
-                required
-              />
-              <input
-                className="form-control mb-3"
-                type={showLoginPassword ? "text" : "password"}
-                name="loginPassword"
-                placeholder="Password"
-                value={loginPassword}
-                onChange={(e) => setLoginPassword(e.target.value)}
-                required
-              />
-              <div className="form-check mb-3">
-                <input 
-                  type="checkbox"
-                  className='form-check-input'
-                  id="showLoginPassword"
-                  checked={showLoginPassword}
-                  onChange={() => setShowLoginPassword(!showLoginPassword)}
-                />
-                <label className="form-check-label" htmlFor="showLoginPassword">Show Password</label>
-              </div>
-              <button onClick={login} className="btn btn-success w-100" type="submit">Login</button>
+            <div className="">
+              <p>already have an account? <a onClick={handleLoginPage} style={{cursor:"pointer", textDecoration:"underline"}}>sign in!</a></p>
             </div>
           </div>
+        
           {user && (
             <div className="text-center my-4">
               <h4 className="text-light">User Logged In: {user.email}</h4>

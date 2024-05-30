@@ -52,7 +52,7 @@ export default function NavBar({ setUrl, auth }) {
         }
     };
 
-    if (location.pathname === '/SignIn') {
+    if (location.pathname === '/SignIn' || location.pathname === '/login') {
         return null;
     }
 

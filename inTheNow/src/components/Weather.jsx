@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DisplayWeather from './DisplayWeather';
 import axios from 'axios';
-import weather_bg from './assets/weather_bg.jpg';
+import weather_bg from '../assets/weather_bg.jpg';
 
 function Weather() {
     const [weather, setWeather] = useState(null);

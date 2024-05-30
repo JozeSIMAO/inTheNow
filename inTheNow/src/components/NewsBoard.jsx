@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
 import FloatingButton from "./FloatingButton";
-import CommentForm from './commentSection/CommentForm';
-import CommentList from './commentSection/CommentList';
+import CommentForm from '../commentSection/CommentForm';
+import CommentList from '../commentSection/CommentList';
 
 const NewsBoard = ({ url }) => {
     const [articles, setArticles] = useState([]);

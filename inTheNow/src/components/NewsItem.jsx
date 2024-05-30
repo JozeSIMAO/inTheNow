@@ -1,5 +1,5 @@
 import React from 'react';
-import image from './assets/news.jpg';
+import image from '../assets/news.jpg';
 
 export default function NewsItem({ title, description, src, url }) {
     const defaultImage = image;
