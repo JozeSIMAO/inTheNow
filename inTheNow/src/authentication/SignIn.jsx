@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import image from '../assets/signin_bg.jpg';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './FirebaseConfig';
 import { useNavigate } from 'react-router-dom';
 
